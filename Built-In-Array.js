@@ -154,6 +154,18 @@ console.log(twoDArray(
     [1,1,1,1,1]]
 ));
 
-function stringRotation(str1,str2){
-    
-}
+
+// #12. String Rotation
+
+function stringRotation(str1, str2){
+    if(str1.length !== str2.length){
+      return false;
+    }
+    let string = str1 + str1;
+    return string.includes(str2);
+  }
+  console.log(stringRotation('amazon', 'azonma'));
+  console.log(stringRotation('amazon', 'azonam'));
+
+//  Time Complexity: O(n)
+// Explanation: Depends on the amount of strings
