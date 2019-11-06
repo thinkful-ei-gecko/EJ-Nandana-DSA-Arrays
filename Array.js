@@ -1,25 +1,27 @@
 const Memory = require('./Memory')
+const memory = new Memory();
 
 class Array {
+
+    //pointer is the memory address
     constructor(){
-        this.storage = new Memory();
         this.length = 0;
-        this.pointer = this.storage.allocate(this.length);
+        this.pointer = memory.allocate(this.length);
     }
 
     _resize(size) {
         const oldPointer = this.pointer;
-        this.pointer = this.storage.allocate(size);
+        this.pointer = memory.allocate(size);
         if (this.pointer === null) {
             throw new Error('Out of memory');
         }
-        this.storage.copy(this.pointer, oldPointer, this.length);
-        this.storage.free(oldPointer);
+        memory.copy(this.pointer, oldPointer, this.length);
+        memory.free(oldPointer);
       }
 
     push(value){
         this._resize(this.length + 1);
-        this.storage.set(this.pointer + this.length, value);
+        memory.set(this.pointer + this.length, value);
         this.length++;
     }
 }
