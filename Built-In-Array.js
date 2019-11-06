@@ -73,7 +73,7 @@ console.log(sum([4, 6, -3, 5, -2, 1]));
 function mergeArray(array1,array2){
   let newarray=[...array1,...array2];
   
- return newarray.sort(function(a,b){return a-b})
+  return newarray.sort(function(a,b){return a-b;});
 
 }
 
@@ -87,11 +87,11 @@ console.log(mergeArray([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
 // #9. Remove Characters
 
 function removeChar(string, remove){
-    console.log(remove)
-    return string.replace(/[remove]/ig, '');
+  console.log(remove);
+  return string.replace(/[remove]/ig, '');
 }
 
-console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
 
 // Time Complexity: O(n)
 // Explanation: Directly compares letters
@@ -101,17 +101,17 @@ console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
 
 function product(numbers){
 
-    let total = numbers.reduce((a,b) => a * b)
+  let total = numbers.reduce((a,b) => a * b);
 
-    let answer = [];
+  let answer = [];
 
-    numbers.forEach(val => answer.push(total/val));
+  numbers.forEach(val => answer.push(total/val));
 
-    return answer;
+  return answer;
 
 }
 
-console.log(product([1,3,9,4]))
+console.log(product([1,3,9,4]));
 
 // Time Complexity: O(n)
 // Explanation: Depends on the size of the array
@@ -119,11 +119,37 @@ console.log(product([1,3,9,4]))
 
 // #11. 2D Array
 
-function twoDArray(){
+function twoDArray(array){
+  const output=[...array];
+  let column=[];
+  let row=[];
+  for(let i=0;i<array.length;i++){
+    if(array[i].includes(0)){
+      for(let j=0; j<array[i].length;j++){
+        if(output[i][j] ===0 && array[i].includes(0)){
+          column[j]=true;
+          row[i]=true;
+        }
+      }
+    }
+    
+  }
 
+  for(let i=0; i<output.length;i++){
+    for(let j=0;j<output.length;j++){
+      if(row[i]|| column[j]){
+        output[i][j]=0;
+      }
+    }
+  }
+  return output;
 }
 
 
 console.log(twoDArray(
-    []
-))
+  [[1,0,1,1,0],
+    [0,1,1,1,0],
+    [1,1,1,1,1],
+    [1,0,1,1,1],
+    [1,1,1,1,1]]
+));
