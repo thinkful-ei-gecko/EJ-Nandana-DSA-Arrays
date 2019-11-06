@@ -41,6 +41,9 @@ console.log(filter([5, 4, 6, 2, 7]));
 // Time Complexity: O(n)
 // Explanation: Depends on the size of the array and has to iterate through each expression
 
+
+// #7. Max sum in the array
+
 function sum(array){
   let max = 0;
  
@@ -62,7 +65,10 @@ function sum(array){
 console.log(sum([4, 6, -3, 5, -2, 1]));
 
 // Time complexity o(n^2)
-// because it has nested arrays
+// Because it has nested arrays
+
+
+// #8. Merge Arrays
 
 function mergeArray(array1,array2){
   let newarray=[...array1,...array2];
@@ -73,4 +79,51 @@ function mergeArray(array1,array2){
 
 console.log(mergeArray([1, 3, 6, 8, 11],[2, 3, 5, 8, 9, 10]));
 
-//Time complexity O(n^2)
+// Time complexity O(n^2) for cases under 10 >
+// Explanation: Haven't gone over O(n log(n))
+
+
+
+// #9. Remove Characters
+
+function removeChar(string, remove){
+    console.log(remove)
+    return string.replace(/[remove]/ig, '');
+}
+
+console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+
+// Time Complexity: O(n)
+// Explanation: Directly compares letters
+
+
+// #10. Products
+
+function product(numbers){
+
+    let total = numbers.reduce((a,b) => a * b)
+
+    let answer = [];
+
+    numbers.forEach(val => answer.push(total/val));
+
+    return answer;
+
+}
+
+console.log(product([1,3,9,4]))
+
+// Time Complexity: O(n)
+// Explanation: Depends on the size of the array
+
+
+// #11. 2D Array
+
+function twoDArray(){
+
+}
+
+
+console.log(twoDArray(
+    []
+))
